@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ReaderQueueRecycleMasterThread.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">QueueReaderRecycle</a> &gt; <a href="index.source.html" class="el_package">hn.com.tigo.queue.listener</a> &gt; <span class="el_source">ReaderQueueRecycleMasterThread.java</span></div><h1>ReaderQueueRecycleMasterThread.java</h1><pre class="source lang-java linenums">/**
+ * ReaderQueueRecycleMasterThread.java
+ * ReaderQueueRecycleMasterThread
+ * Copyright (c) Tigo Honduras.
+ */
+package hn.com.tigo.queue.listener;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import javax.jms.Connection;
+import javax.jms.JMSException;
+import javax.jms.MessageConsumer;
+import javax.jms.Queue;
+import javax.jms.QueueConnectionFactory;
+import javax.jms.TextMessage;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.google.gson.Gson;
+import com.tigo.josm.gateway.services.order.additionalparameterdto.v1.AdditionalParameters;
+import com.tigo.josm.gateway.services.order.additionalparameterdto.v1.Parameter;
+import com.tigo.josm.gateway.services.order.complexorderrequest.v1.ComplexOrderRequest;
+import com.tigo.josm.gateway.services.order.complexorderrequest.v1.EnumOrderType;
+import com.tigo.josm.gateway.services.order.complexorderrequest.v1.OrderRequestDetail;
+import com.tigo.josm.gateway.services.order.orderresponse.v1.OrderResponse;
+
+import hn.com.tigo.josm.persistence.core.ServiceSessionEJB;
+import hn.com.tigo.josm.persistence.core.ServiceSessionEJBLocal;
+import hn.com.tigo.josm.persistence.exception.PersistenceException;
+import hn.com.tigo.queue.dto.ConfigEventDTO;
+import hn.com.tigo.queue.dto.DetailEventDTO;
+import hn.com.tigo.queue.dto.NotifyMessageDTO;
+import hn.com.tigo.queue.listener.entity.OcepManager;
+import hn.com.tigo.queue.service.CPEComplexServiceProvider;
+import hn.com.tigo.queue.utils.QueueConstantListener;
+import hn.com.tigo.queue.utils.ReadFilesConfig;
+import hn.com.tigo.queue.utils.States;
+
+/**
+ * ReaderQueueRecycleMasterThread.
+ *
+ * @author Yuny Rene Rodriguez Perez {@literal&lt;mailto: yrodriguez@hightech-corp.com /&gt;}
+ * @version  1.0.0
+ * @since 08-25-2022 10:17:53 PM 2022
+ */
+public class ReaderQueueRecycleMasterThread extends Thread {
+
+	
+	/** The Constant LOGGER. */
+<span class="fc" id="L61">	private static final Logger LOGGER = LogManager.getLogger(ReaderQueueRecycleMasterThread.class);</span>
+	
+	/** The executor service. */
+	private ThreadPoolExecutor executorService;
+
+	/** The state. */
+	private States state;
+
+	/** The queue. */
+	Queue queue;
+
+	/** The queue conn. */
+	Connection queueConn;
+
+	/** The consumer. */
+	MessageConsumer consumer;
+
+	/** The params. */
+	private Map&lt;String, String&gt; params;
+
+	/**
+	 * Instantiates a new reader queue recycle master thread.
+	 */
+<span class="fc" id="L84">	public ReaderQueueRecycleMasterThread() {</span>
+		try {
+<span class="fc" id="L86">			initialize();</span>
+<span class="nc" id="L87">		} catch (Exception e) {</span>
+<span class="nc" id="L88">			state = States.SHUTTINGDOWN;</span>
+<span class="nc" id="L89">			LOGGER.error(&quot;Unable to initialize : &quot; + e.getMessage(), e);</span>
+<span class="fc" id="L90">		}</span>
+<span class="fc" id="L91">	}</span>
+
+
+	/**
+	 * Initialize.
+	 */
+	public void initialize() {
+<span class="fc" id="L98">		BlockingQueue&lt;Runnable&gt; workingQueue = new ArrayBlockingQueue&lt;Runnable&gt;(1);</span>
+<span class="fc" id="L99">		LOGGER.info(&quot;workingQueue correctly&quot;);</span>
+<span class="fc" id="L100">		executorService = new ThreadPoolExecutor(1, 1, 1, TimeUnit.MILLISECONDS, workingQueue);</span>
+		// Starting master thread
+<span class="fc" id="L102">		state = States.STARTED;</span>
+<span class="fc" id="L103">		LOGGER.info(&quot;Iinitialize Finalized.&quot;);</span>
+<span class="fc" id="L104">	}</span>
+
+	
+	/**
+	 * Shutdown.
+	 */
+	public void shutdown() {
+<span class="nc" id="L111">		state = States.SHUTTINGDOWN;</span>
+<span class="nc" id="L112">		executorService.shutdownNow();</span>
+<span class="nc" id="L113">	}</span>
+
+	/**
+	 * Startup queue connection.
+	 *
+	 * @return true, if successful
+	 */
+	private boolean startupQueueConnection() {
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">		if (this.queueConn != null) {</span>
+			try {
+<span class="nc" id="L123">				this.queueConn.close();</span>
+<span class="nc" id="L124">				this.queueConn = null;</span>
+<span class="nc" id="L125">			} catch (JMSException e2) {</span>
+<span class="nc" id="L126">				LOGGER.error(&quot;Queue connection could not be closed while performing cleanup.&quot;);</span>
+<span class="nc" id="L127">			}</span>
+		}
+<span class="fc" id="L129">		InitialContext ctx = null;</span>
+<span class="fc" id="L130">		QueueConnectionFactory qcf = null;</span>
+<span class="fc" id="L131">		Hashtable&lt;String, String&gt; properties = new Hashtable&lt;String, String&gt;();</span>
+<span class="fc" id="L132">		properties.put(&quot;java.naming.factory.initial&quot;, params.get(&quot;INITITAL_CTX_CF&quot;));</span>
+<span class="fc" id="L133">		properties.put(&quot;java.naming.provider.url&quot;, params.get(&quot;T3_QUEUE_READER_RECYCLE&quot;));</span>
+		try {
+<span class="nc" id="L135">			ctx = new InitialContext(properties);</span>
+<span class="nc" id="L136">			qcf = (QueueConnectionFactory) ctx.lookup(params.get(&quot;CONNECTION_QUEUE_CF_QRR&quot;));</span>
+<span class="nc" id="L137">			this.queue = (Queue) ctx.lookup(params.get(&quot;CONNECTION_QUEUE_DQ_QRR&quot;));</span>
+<span class="nc" id="L138">			this.queueConn = (Connection) qcf.createQueueConnection();</span>
+<span class="nc" id="L139">			this.queueConn.start();</span>
+<span class="nc" id="L140">			ctx.close();</span>
+<span class="nc" id="L141">			return true;</span>
+<span class="fc" id="L142">		} catch (NamingException e) {</span>
+<span class="fc" id="L143">			LOGGER.error(&quot;JNDI-related problems while trying to retrieve Queue/QueueConnectionFactory.&quot;);</span>
+<span class="fc" id="L144">			return false;</span>
+<span class="nc" id="L145">		} catch (JMSException e) {</span>
+<span class="nc" id="L146">			LOGGER.error(&quot;Problems while trying to establish connection to queue.&quot;);</span>
+<span class="nc" id="L147">			return false;</span>
+		}
+	}
+
+	
+	/**
+	 * Run.
+	 */
+	@Override
+	public void run() {
+
+<span class="fc" id="L158">		getConnection();</span>
+<span class="fc" id="L159">		startupQueueConnection();</span>
+		
+<span class="fc bfc" id="L161" title="All 2 branches covered.">		while (state == States.STARTED) {</span>
+			
+<span class="fc" id="L163">			long startTime = 0;	</span>
+			/*try {
+				Session session = this.queueConn.createSession(false, 1);
+				this.consumer = session.createConsumer((Destination) this.queue);
+			} catch (JMSException e) {
+				LOGGER.error(&quot;Error ocurred while attempting creation of queue session.&quot;);
+				return;
+			}*/
+
+			try {
+				
+<span class="nc" id="L174">				TextMessage message = (TextMessage) this.consumer.receive();</span>
+<span class="nc" id="L175">				String mensaje = message.getText();</span>
+
+<span class="nc" id="L177">				startTime = sendToCPE(startTime, mensaje);</span>
+
+<span class="fc" id="L179">			} catch (Exception error) {</span>
+<span class="fc" id="L180">				LOGGER.error(QueueConstantListener.NAME_LISTENER + this.getClass().getName()</span>
+						+ QueueConstantListener.MESSAGE_ERROR_PROCESS, error);
+<span class="fc" id="L182">				NewRelicImpl.addNewRelicError(error);</span>
+			} finally {
+<span class="pc" id="L184">				long endTime = System.nanoTime(); // Se guarda el tiempo final del proceso.</span>
+<span class="pc" id="L185">				long duration = (endTime - startTime); // Se calcula el tiempo que tomo procesar los datos.</span>
+<span class="pc" id="L186">				long timeDuration = duration / 1000000;</span>
+<span class="pc" id="L187">				NewRelicImpl.addNewRelicMetric(&quot;QueueReaderReycle&quot;, timeDuration); // Se manda la informacion de</span>
+																							// la duracion del proceso a
+																							// NewRelic como metrica.
+<span class="pc" id="L190">				startTime = 0;</span>
+
+<span class="pc" id="L192">			}</span>
+<span class="fc" id="L193">			state = States.SHUTTINGDOWN;</span>
+<span class="fc" id="L194">		}</span>
+<span class="fc" id="L195">		executorService.shutdown();</span>
+<span class="fc" id="L196">	}</span>
+
+
+	/**
+	 * Send to CPE.
+	 *
+	 * @param startTime the start time
+	 * @param mensaje the mensaje
+	 * @return the long
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws MalformedURLException the malformed URL exception
+	 */
+	public long sendToCPE(long startTime, String mensaje) throws IOException, MalformedURLException {
+		
+<span class="pc bpc" id="L210" title="1 of 4 branches missed.">		if (mensaje != null &amp;&amp; !mensaje.equals(&quot;&quot;)) {</span>
+<span class="fc" id="L211">			startTime = System.nanoTime();</span>
+<span class="fc" id="L212">			LOGGER.info(&quot;Mensaje Leido: &quot; + mensaje);</span>
+			
+<span class="fc" id="L214">			Gson gson = new Gson();</span>
+<span class="fc" id="L215">			NotifyMessageDTO notifyMessage = gson.fromJson(mensaje, NotifyMessageDTO.class);</span>
+			
+<span class="fc" id="L217">			ReadFilesConfig readConfig = new ReadFilesConfig();</span>
+<span class="fc" id="L218">			final ConfigEventDTO configEvent = readConfig.readConfigEvent();</span>
+<span class="fc" id="L219">			DetailEventDTO detailEvent = readConfig.getDetailEvent(configEvent, notifyMessage.getEventType());</span>
+
+<span class="fc" id="L221">			CPEComplexServiceProvider service = new CPEComplexServiceProvider(detailEvent.getEndpoint());</span>
+<span class="fc" id="L222">			OrderResponse response = service</span>
+<span class="fc" id="L223">					.excuteComplexOrder(createRequest(notifyMessage, detailEvent.getComment()));</span>
+			
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">			if (response != null) {</span>
+<span class="fc" id="L226">				LOGGER.info(QueueConstantListener.NAME_LISTENER + QueueConstantListener.TRANSACTION_ID</span>
+<span class="fc" id="L227">						+ response.getTransactionID() + QueueConstantListener.CODE + response.getCode()</span>
+<span class="fc" id="L228">						+ QueueConstantListener.DESCRIPTION + response.getMessage());</span>
+				
+<span class="fc bfc" id="L230" title="All 2 branches covered.">				if (response.getCode() != 0) {</span>
+<span class="fc" id="L231">					NewRelicImpl.addNewRelicErrorMessage(&quot;QueueReaderReycle &quot; + response.getMessage());</span>
+				}
+			}
+		}
+<span class="fc" id="L235">		return startTime;</span>
+	}
+
+	/**
+	 * Creates the request.
+	 *
+	 * @param notifyMessage the notify message
+	 * @param comment the comment
+	 * @return the complex order request
+	 */
+	private ComplexOrderRequest createRequest(final NotifyMessageDTO notifyMessage, final String comment) {
+
+<span class="fc" id="L247">		ComplexOrderRequest request = new ComplexOrderRequest();</span>
+<span class="fc" id="L248">		request.setChannelId(Integer.valueOf(notifyMessage.getChannelId()));</span>
+<span class="fc" id="L249">		request.setComment(comment);</span>
+<span class="fc" id="L250">		request.setExternalTransacionId(UUID.randomUUID().toString());</span>
+<span class="fc" id="L251">		OrderRequestDetail orderRequestDetail = new OrderRequestDetail();</span>
+<span class="fc" id="L252">		orderRequestDetail.setProductId(notifyMessage.getProductId());</span>
+<span class="fc" id="L253">		orderRequestDetail.setSubscriberId(notifyMessage.getSubscriberId());</span>
+<span class="fc" id="L254">		orderRequestDetail.setQuantity(1);</span>
+
+<span class="fc bfc" id="L256" title="All 2 branches covered.">		if (notifyMessage.getOrderType().equalsIgnoreCase((EnumOrderType.ACTIVATE.name()))) {</span>
+<span class="fc" id="L257">			orderRequestDetail.setOrderType(EnumOrderType.ACTIVATE);</span>
+<span class="fc bfc" id="L258" title="All 2 branches covered.">		} else if (notifyMessage.getOrderType().equalsIgnoreCase((EnumOrderType.DEACTIVATE.name()))) {</span>
+<span class="fc" id="L259">			orderRequestDetail.setOrderType(EnumOrderType.DEACTIVATE);</span>
+<span class="fc bfc" id="L260" title="All 2 branches covered.">		} else if (notifyMessage.getOrderType().equalsIgnoreCase((EnumOrderType.LOAN.name()))) {</span>
+<span class="fc" id="L261">			orderRequestDetail.setOrderType(EnumOrderType.LOAN);</span>
+<span class="fc bfc" id="L262" title="All 2 branches covered.">		} else if (notifyMessage.getOrderType().equalsIgnoreCase((EnumOrderType.PURCHASE.name()))) {</span>
+<span class="fc" id="L263">			orderRequestDetail.setOrderType(EnumOrderType.PURCHASE);</span>
+<span class="fc bfc" id="L264" title="All 2 branches covered.">		} else if (notifyMessage.getOrderType().equalsIgnoreCase((EnumOrderType.SELL.name()))) {</span>
+<span class="fc" id="L265">			orderRequestDetail.setOrderType(EnumOrderType.SELL);</span>
+<span class="pc bpc" id="L266" title="1 of 2 branches missed.">		} else if (notifyMessage.getOrderType().equalsIgnoreCase((EnumOrderType.TRANSFER.name()))) {</span>
+<span class="fc" id="L267">			orderRequestDetail.setOrderType(EnumOrderType.TRANSFER);</span>
+		}
+<span class="fc" id="L269">		AdditionalParameters addParameters = new AdditionalParameters();</span>
+<span class="fc" id="L270">		getAddParamsData(notifyMessage, addParameters);</span>
+		
+<span class="fc" id="L272">		orderRequestDetail.setAdditionalParameters(addParameters);</span>
+<span class="fc" id="L273">		request.getOrderRequestDetail().add(orderRequestDetail);</span>
+
+<span class="fc" id="L275">		return request;</span>
+	}
+
+
+	/**
+	 * Gets the adds the params data.
+	 *
+	 * @param notifyMessage the notify message
+	 * @param addParameters the add parameters
+	 * @return the adds the params data
+	 */
+	private void getAddParamsData(final NotifyMessageDTO notifyMessage, AdditionalParameters addParameters) {
+		
+		Parameter parameter;
+<span class="fc bfc" id="L289" title="All 2 branches covered.">		for (int count = 0; count &lt;= notifyMessage.getAdditionalsParams().size() - 2; count++) {</span>
+<span class="fc bfc" id="L290" title="All 2 branches covered.">			if (count == 0) {</span>
+<span class="fc" id="L291">				continue;</span>
+<span class="fc bfc" id="L292" title="All 2 branches covered.">			} else if (count == 1) {</span>
+<span class="fc" id="L293">				parameter = new Parameter();</span>
+<span class="fc" id="L294">				parameter.setKey(params.get(&quot;SUBEVENT_KEY&quot;));</span>
+<span class="fc" id="L295">				parameter.setValue(notifyMessage.getAdditionalsParams().get(count).getAttribute());</span>
+<span class="fc" id="L296">				addParameters.getParameter().add(parameter);</span>
+			} else {
+<span class="fc" id="L298">				parameter = new Parameter();</span>
+<span class="fc" id="L299">				parameter.setKey(notifyMessage.getAdditionalsParams().get(count).getAttribute());</span>
+				try {
+<span class="fc bfc" id="L301" title="All 2 branches covered.">					if (!notifyMessage.getAdditionalsParams().get(count).getValue().equals(&quot;&quot;)) {</span>
+<span class="fc" id="L302">						parameter.setValue(notifyMessage.getAdditionalsParams().get(count).getValue());</span>
+					} else {
+<span class="fc" id="L304">						parameter.setValue(params.get(&quot;NOT_AVAILABLE&quot;));</span>
+					}
+<span class="nc" id="L306">				} catch (Exception e) {</span>
+<span class="nc" id="L307">					parameter.setValue(params.get(&quot;NOT_AVAILABLE&quot;));</span>
+<span class="fc" id="L308">				}</span>
+<span class="fc" id="L309">				addParameters.getParameter().add(parameter);</span>
+			}
+		}
+<span class="fc" id="L312">	}</span>
+
+	
+	/**
+	 * Gets the connection.
+	 *
+	 * @return the connection
+	 */
+	@SuppressWarnings(&quot;unchecked&quot;)
+	private void getConnection() {
+<span class="fc" id="L322">		OcepManager manager = null;</span>
+		try {
+<span class="nc" id="L324">			ServiceSessionEJBLocal&lt;OcepManager&gt; serviceSession = ServiceSessionEJB.getInstance();</span>
+<span class="nc" id="L325">			manager = serviceSession.getSessionDataSource(OcepManager.class,</span>
+					QueueConstantListener.DATASOURCE_CPE);
+<span class="nc" id="L327">			params = manager.listAllParam();</span>
+<span class="fc" id="L328">		} catch (PersistenceException e) {</span>
+<span class="fc" id="L329">			LOGGER.error(QueueConstantListener.ERROR_CONNECTION + e.getMessage(), e);</span>
+		} finally {
+<span class="pc bpc" id="L331" title="5 of 6 branches missed.">			if (manager != null) {</span>
+				try {
+<span class="nc" id="L333">					manager.close();</span>
+<span class="nc" id="L334">				} catch (PersistenceException e) {</span>
+<span class="nc" id="L335">					LOGGER.error(QueueConstantListener.COULD_NOT_CLOSE);</span>
+<span class="nc" id="L336">				}</span>
+			}
+<span class="nc" id="L338">		}</span>
+<span class="fc" id="L339">	}</span>
+	
+	/**
+	 * Sets the params.
+	 *
+	 * @param params the params
+	 */
+	public void setParams(Map&lt;String, String&gt; params) {
+<span class="fc" id="L347">		this.params = params;</span>
+<span class="fc" id="L348">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

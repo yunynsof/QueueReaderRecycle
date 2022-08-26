@@ -1,0 +1,538 @@
+[INFO ] 25-08-2022 21:48:54.030 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : workingQueue correctly
+[INFO ] 25-08-2022 21:48:54.041 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Iinitialize Finalized.
+[ERROR] 25-08-2022 21:48:54.085 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : No se logro realizar conexion a base de datos Persistence-error-1: Failed to create session.
+hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-1: Failed to create session.
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:118) ~[persistence.lite-1.0.0.jar:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.getConnection(ReaderQueueRecycleMasterThread.java:266) [classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:127) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:128) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:27) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:264) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200) [surefire-booter-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153) [surefire-booter-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.17.jar:2.17]
+Caused by: hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-7: Unresolved JNDI name.OCEP
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:140) ~[persistence.lite-1.0.0.jar:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[persistence.lite-1.0.0.jar:?]
+	... 34 more
+Caused by: javax.naming.NoInitialContextException: Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:662) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getURLOrDefaultInitCtx(InitialContext.java:350) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.lookup(InitialContext.java:417) ~[?:1.8.0_202]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:138) ~[persistence.lite-1.0.0.jar:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[persistence.lite-1.0.0.jar:?]
+	... 34 more
+[ERROR] 25-08-2022 21:48:54.102 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : JNDI-related problems while trying to retrieve Queue/QueueConnectionFactory.
+[ERROR] 25-08-2022 21:48:54.103 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread No se encontro nada en la cola
+java.lang.NullPointerException: null
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:143) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:128) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:27) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:264) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200) [surefire-booter-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153) [surefire-booter-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.17.jar:2.17]
+[INFO ] 25-08-2022 21:48:54.112 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"ACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:48:56.753 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: d910106b-9570-413f-bbcd-4c737a450510, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:48:56.753 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"PURCHASE","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:48:58.587 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: c51c763c-3e31-479c-936e-64c807d2b329, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:49:20.136 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : workingQueue correctly
+[INFO ] 25-08-2022 21:49:20.145 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Iinitialize Finalized.
+[ERROR] 25-08-2022 21:49:20.186 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : No se logro realizar conexion a base de datos Persistence-error-1: Failed to create session.
+hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-1: Failed to create session.
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:118) ~[classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.getConnection(ReaderQueueRecycleMasterThread.java:266) [classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:127) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-7: Unresolved JNDI name.OCEP
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:140) ~[classes/:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[classes/:?]
+	... 26 more
+Caused by: javax.naming.NoInitialContextException: Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:662) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getURLOrDefaultInitCtx(InitialContext.java:350) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.lookup(InitialContext.java:417) ~[?:1.8.0_202]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:138) ~[classes/:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[classes/:?]
+	... 26 more
+[ERROR] 25-08-2022 21:49:20.200 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : JNDI-related problems while trying to retrieve Queue/QueueConnectionFactory.
+[ERROR] 25-08-2022 21:49:20.202 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread No se encontro nada en la cola
+java.lang.NullPointerException: null
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:143) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+[INFO ] 25-08-2022 21:49:20.206 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"ACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:49:22.269 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: a8e77b8b-474a-4b0d-b517-1483524e6638, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:49:22.270 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"PURCHASE","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:49:23.598 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 1eaa3405-16d2-4732-8110-f8b4ea61f495, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:49:23.604 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : workingQueue correctly
+[INFO ] 25-08-2022 21:49:23.605 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Iinitialize Finalized.
+[ERROR] 25-08-2022 21:49:23.606 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : No se logro realizar conexion a base de datos Persistence-error-1: Failed to create session.
+hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-1: Failed to create session.
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:118) ~[classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.getConnection(ReaderQueueRecycleMasterThread.java:266) [classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:127) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:128) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:27) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-7: Unresolved JNDI name.OCEP
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:140) ~[classes/:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[classes/:?]
+	... 34 more
+Caused by: javax.naming.NoInitialContextException: Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:662) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getURLOrDefaultInitCtx(InitialContext.java:350) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.lookup(InitialContext.java:417) ~[?:1.8.0_202]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:138) ~[classes/:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[classes/:?]
+	... 34 more
+[ERROR] 25-08-2022 21:49:23.609 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : JNDI-related problems while trying to retrieve Queue/QueueConnectionFactory.
+[ERROR] 25-08-2022 21:49:23.609 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread No se encontro nada en la cola
+java.lang.NullPointerException: null
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:143) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:128) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:27) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+[INFO ] 25-08-2022 21:49:23.612 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"ACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:49:24.652 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: a7bfea84-c31c-4fac-9ebe-bf8f7f3a9cb1, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:49:24.653 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"PURCHASE","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:49:35.880 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 045e4149-983d-4710-af40-742400f2d278, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:03.843 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : workingQueue correctly
+[INFO ] 25-08-2022 21:51:03.850 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Iinitialize Finalized.
+[ERROR] 25-08-2022 21:51:03.880 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : No se logro realizar conexion a base de datos Persistence-error-1: Failed to create session.
+hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-1: Failed to create session.
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:118) ~[classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.getConnection(ReaderQueueRecycleMasterThread.java:266) [classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:127) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-7: Unresolved JNDI name.OCEP
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:140) ~[classes/:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[classes/:?]
+	... 26 more
+Caused by: javax.naming.NoInitialContextException: Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:662) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getURLOrDefaultInitCtx(InitialContext.java:350) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.lookup(InitialContext.java:417) ~[?:1.8.0_202]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:138) ~[classes/:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[classes/:?]
+	... 26 more
+[ERROR] 25-08-2022 21:51:03.891 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : JNDI-related problems while trying to retrieve Queue/QueueConnectionFactory.
+[ERROR] 25-08-2022 21:51:03.892 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread No se encontro nada en la cola
+java.lang.NullPointerException: null
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:143) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+[INFO ] 25-08-2022 21:51:03.895 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"ACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:51:06.532 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 3edbed92-e062-494e-9753-89e9f98b7d2d, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:06.533 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"PURCHASE","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:51:07.928 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 53f5343c-a21d-40d1-b1ac-e344d1227424, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:07.929 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"DEACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:51:08.388 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 4be55206-c227-4784-a145-73a61f24f1c0, code: 107, description: Error in configuration item BPMN Family.
+[INFO ] 25-08-2022 21:51:08.388 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"LOAN","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:51:10.026 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: e884694a-f31f-4d8f-adb4-50d29c77851d, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:10.027 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"SELL","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:51:10.853 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 2d709ff9-e952-409d-b1ba-2b61524474cb, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:10.853 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"TRANSFER","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:51:11.300 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 7d490402-2d31-4566-8ffb-08b16ebeb763, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:11.305 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : workingQueue correctly
+[INFO ] 25-08-2022 21:51:11.306 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Iinitialize Finalized.
+[ERROR] 25-08-2022 21:51:11.308 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : No se logro realizar conexion a base de datos Persistence-error-1: Failed to create session.
+hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-1: Failed to create session.
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:118) ~[classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.getConnection(ReaderQueueRecycleMasterThread.java:266) [classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:127) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:128) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:27) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+Caused by: hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-7: Unresolved JNDI name.OCEP
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:140) ~[classes/:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[classes/:?]
+	... 34 more
+Caused by: javax.naming.NoInitialContextException: Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:662) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getURLOrDefaultInitCtx(InitialContext.java:350) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.lookup(InitialContext.java:417) ~[?:1.8.0_202]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:138) ~[classes/:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[classes/:?]
+	... 34 more
+[ERROR] 25-08-2022 21:51:11.313 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : JNDI-related problems while trying to retrieve Queue/QueueConnectionFactory.
+[ERROR] 25-08-2022 21:51:11.314 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread No se encontro nada en la cola
+java.lang.NullPointerException: null
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:143) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:128) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:27) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210) [.cp/:?]
+[INFO ] 25-08-2022 21:51:11.316 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"ACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:51:12.188 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 9b9c8fae-ac3e-4e61-bd0e-cca751a56f77, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:12.188 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"PURCHASE","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:51:13.734 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 754902fd-2f67-4485-8f8f-7184d4b6c071, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:13.734 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"DEACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:51:14.121 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 3d9fa638-d9ed-4890-9eb5-631997116632, code: 107, description: Error in configuration item BPMN Family.
+[INFO ] 25-08-2022 21:51:14.122 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"LOAN","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:51:14.521 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: ec956cda-a12a-418e-9ff0-8488eadef45c, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:14.522 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"SELL","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 21:51:14.908 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 1553c948-da67-4666-a98f-1a3efff15e92, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 21:51:14.912 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"TRANSFER","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 21:51:15.258 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 39ba7b5f-3067-4712-8e5f-33407394e540, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 22:21:17.099 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : workingQueue correctly
+[INFO ] 25-08-2022 22:21:17.108 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Iinitialize Finalized.
+[ERROR] 25-08-2022 22:21:17.142 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : No se logro realizar conexion a base de datos Persistence-error-1: Failed to create session.
+hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-1: Failed to create session.
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:118) ~[persistence.lite-1.0.0.jar:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.getConnection(ReaderQueueRecycleMasterThread.java:325) [classes/:?]
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:158) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:128) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:27) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:264) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200) [surefire-booter-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153) [surefire-booter-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.17.jar:2.17]
+Caused by: hn.com.tigo.josm.persistence.exception.PersistenceException: Persistence-error-7: Unresolved JNDI name.OCEP
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:140) ~[persistence.lite-1.0.0.jar:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[persistence.lite-1.0.0.jar:?]
+	... 34 more
+Caused by: javax.naming.NoInitialContextException: Need to specify class name in environment or system property, or as an applet parameter, or in an application resource file:  java.naming.factory.initial
+	at javax.naming.spi.NamingManager.getInitialContext(NamingManager.java:662) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getDefaultInitCtx(InitialContext.java:313) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.getURLOrDefaultInitCtx(InitialContext.java:350) ~[?:1.8.0_202]
+	at javax.naming.InitialContext.lookup(InitialContext.java:417) ~[?:1.8.0_202]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.createDataSource(ServiceSessionEJB.java:138) ~[persistence.lite-1.0.0.jar:?]
+	at hn.com.tigo.josm.persistence.core.ServiceSessionEJB.getSessionDataSource(ServiceSessionEJB.java:108) ~[persistence.lite-1.0.0.jar:?]
+	... 34 more
+[ERROR] 25-08-2022 22:21:17.161 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : JNDI-related problems while trying to retrieve Queue/QueueConnectionFactory.
+[ERROR] 25-08-2022 22:21:17.162 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread No se encontro nada en la cola
+java.lang.NullPointerException: null
+	at hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread.run(ReaderQueueRecycleMasterThread.java:174) [classes/:?]
+	at hn.com.tigo.queue.test.ListenerTest.test(ListenerTest.java:28) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_202]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:128) [junit-4.12.jar:4.12]
+	at org.junit.runners.Suite.runChild(Suite.java:27) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:264) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:124) [surefire-junit4-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200) [surefire-booter-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153) [surefire-booter-2.17.jar:2.17]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.17.jar:2.17]
+[INFO ] 25-08-2022 22:21:17.168 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"ACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 22:21:18.596 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: e11e0489-5788-4f7a-a445-cfc7eb46628b, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 22:21:18.597 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"PURCHASE","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 22:21:22.589 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 430eb63a-c039-4124-bc3d-98eccaba3936, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 22:21:22.590 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"DEACTIVATE","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 22:21:23.464 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 4f55132b-e4cb-4ee7-b4bd-1d6780b8d89f, code: 107, description: Error in configuration item BPMN Family.
+[INFO ] 25-08-2022 22:21:23.465 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"LOAN","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 22:21:24.355 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 4eb84aff-4e3a-4211-8e20-7555ab3fe50e, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 22:21:24.355 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"SELL","productId":9002206,"subscriberId":"94517500","date":"20220823","transactionId":"50df1c20-33f5-4119-afa1-4c3fb49b70b7","additionalsParams":[{"attribute":"EVENT","value":"SEGUROS"},{"attribute":"SUBEVENT","value":"SEGUROS"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA4","value":""},{"attribute":"123581321","value":""}]}
+[INFO ] 25-08-2022 22:21:25.102 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 447f6c66-e3d1-41d6-b684-cba67f3a5ec4, code: 0, description: Operation Successful
+[INFO ] 25-08-2022 22:21:25.102 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : Mensaje Leido: {"eventType":"RECICLAJE","channelId":"31","orderType":"TRANSFER","productId":774,"subscriberId":"94517500","date":"20220824","transactionId":"9f22ac4c-3c9e-4859-ab56-e1a54a9c728b","additionalsParams":[{"attribute":"EVENT","value":"FACTURACION"},{"attribute":"SUBEVENT","value":"FACTURACION"},{"attribute":"MSISDN","value":"94517500"},{"attribute":"CUENTA_CLIENTE","value":"0801198716839CCHN"},{"attribute":"CUENTA_FACTURACION","value":"8000066364"},{"attribute":"ID_PEDIDO_VENTA","value":"1521895736507599298"},{"attribute":"NUMERO_FACTURA","value":"3330"},{"attribute":"FECHAEMISION","value":"20200213"},{"attribute":"IMEI","value":"869175040414278"},{"attribute":"TOTAL_FACTURADO","value":"100.00"},{"attribute":"TIPO_FACTURA","value":"FC2"},{"attribute":"USUARIO","value":"HCORDERO"},{"attribute":"MOTIVO","value":"PAGO"},{"attribute":"TEST_QA","value":""},{"attribute":"123432","value":""}]}
+[INFO ] 25-08-2022 22:21:25.988 [main hn.com.tigo.queue.listener.ReaderQueueRecycleMasterThread] listener.ReaderQueueRecycleMasterThread : QueueReaderReycle Transaction id cpe: 0ce473c4-5724-4346-bcfb-5fb6d6e31ec9, code: 0, description: Operation Successful

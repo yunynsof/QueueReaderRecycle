@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ObjectFactory.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">QueueReaderRecycle</a> &gt; <a href="index.source.html" class="el_package">com.tigo.josm.gateway.services.order.complexorderrequest.v1</a> &gt; <span class="el_source">ObjectFactory.java</span></div><h1>ObjectFactory.java</h1><pre class="source lang-java linenums">
+package com.tigo.josm.gateway.services.order.complexorderrequest.v1;
+
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
+import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.namespace.QName;
+import com.tigo.josm.gateway.services.order.orderresponse.v1.OrderResponse;
+
+
+/**
+ * This object contains factory methods for each 
+ * Java content interface and Java element interface 
+ * generated in the com.tigo.josm.gateway.services.order.complexorderrequest.v1 package. 
+ * &lt;p&gt;An ObjectFactory allows you to programatically 
+ * construct new instances of the Java representation 
+ * for XML content. The Java representation of XML 
+ * content can consist of schema derived interfaces 
+ * and classes representing the binding of schema 
+ * type definitions, element declarations and model 
+ * groups.  Factory methods for each of these are 
+ * provided in this class.
+ * 
+ */
+@XmlRegistry
+public class ObjectFactory {
+
+<span class="nc" id="L28">    private final static QName _ComplexOrderRequestInstance_QNAME = new QName(&quot;http://tigo.com/josm/gateway/services/order/ComplexOrderRequest/V1&quot;, &quot;complexOrderRequestInstance&quot;);</span>
+<span class="nc" id="L29">    private final static QName _ComplexProductResponseOrder_QNAME = new QName(&quot;http://tigo.com/josm/gateway/services/order/ComplexOrderRequest/V1&quot;, &quot;complexProductResponseOrder&quot;);</span>
+
+    /**
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.tigo.josm.gateway.services.order.complexorderrequest.v1
+     * 
+     */
+<span class="nc" id="L35">    public ObjectFactory() {</span>
+<span class="nc" id="L36">    }</span>
+
+    /**
+     * Create an instance of {@link ComplexOrderRequest }
+     * 
+     */
+    public ComplexOrderRequest createComplexOrderRequest() {
+<span class="nc" id="L43">        return new ComplexOrderRequest();</span>
+    }
+
+    /**
+     * Create an instance of {@link OrderRequestDetail }
+     * 
+     */
+    public OrderRequestDetail createOrderRequestDetail() {
+<span class="nc" id="L51">        return new OrderRequestDetail();</span>
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code &lt;}{@link ComplexOrderRequest }{@code &gt;}}
+     * 
+     */
+    @XmlElementDecl(namespace = &quot;http://tigo.com/josm/gateway/services/order/ComplexOrderRequest/V1&quot;, name = &quot;complexOrderRequestInstance&quot;)
+    public JAXBElement&lt;ComplexOrderRequest&gt; createComplexOrderRequestInstance(ComplexOrderRequest value) {
+<span class="nc" id="L60">        return new JAXBElement&lt;ComplexOrderRequest&gt;(_ComplexOrderRequestInstance_QNAME, ComplexOrderRequest.class, null, value);</span>
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code &lt;}{@link OrderResponse }{@code &gt;}}
+     * 
+     */
+    @XmlElementDecl(namespace = &quot;http://tigo.com/josm/gateway/services/order/ComplexOrderRequest/V1&quot;, name = &quot;complexProductResponseOrder&quot;)
+    public JAXBElement&lt;OrderResponse&gt; createComplexProductResponseOrder(OrderResponse value) {
+<span class="nc" id="L69">        return new JAXBElement&lt;OrderResponse&gt;(_ComplexProductResponseOrder_QNAME, OrderResponse.class, null, value);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>
