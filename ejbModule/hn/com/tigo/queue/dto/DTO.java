@@ -4,7 +4,7 @@ import hn.com.tigo.josm.persistence.core.Entity;
 
 
 /**
- * DTO.
+ * This class is abstract type for DTO class use.
  *
  * @author Yuny Rene Rodriguez Perez {@literal<mailto: yrodriguez@hightech-corp.com />}
  * @version  1.0.0

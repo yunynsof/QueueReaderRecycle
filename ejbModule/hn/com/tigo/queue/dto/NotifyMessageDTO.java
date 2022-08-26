@@ -3,7 +3,7 @@ package hn.com.tigo.queue.dto;
 import java.util.List;
 
 /**
- * NotifyMessageDTO.
+ * This class is used to manage and map the structure of messages read from the JMS queue.
  *
  * @author Yuny Rene Rodriguez Perez {@literal<mailto: yrodriguez@hightech-corp.com />}
  * @version  1.0.0

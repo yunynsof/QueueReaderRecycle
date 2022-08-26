@@ -10,7 +10,7 @@
 		<url.archiva>192.168.159.49</url.archiva>
 		<junit.version>4.12</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<surefire.skiptests>false</surefire.skiptests>
+		<surefire.skiptests>true</surefire.skiptests>
 		<runSuite>**/AllTest.class</runSuite>
 	</properties>
 	

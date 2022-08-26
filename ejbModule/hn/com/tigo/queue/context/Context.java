@@ -5,9 +5,8 @@
  */
 package hn.com.tigo.queue.context;
 
-
 /**
- * Context.
+ * Context This class contains the necessary attributes for handling the context for reading jms queues.
  *
  * @author Yuny Rene Rodriguez Perez {@literal<mailto: yrodriguez@hightech-corp.com />}
  * @version  1.0.0
